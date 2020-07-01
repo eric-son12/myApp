@@ -1,0 +1,592 @@
+<!-- <div id="ahihi">
+  <ion-grid class="today-grid-content">
+    <div class="today-visits-component">
+      <ion-row class="header-container">
+        <ion-col class="ion-no-padding" >
+          <p class="label-header">1
+            <span> Visit </span>("Hour")
+          </p>
+        </ion-col>
+        <ion-col class="ion-no-padding" class="filter-col">
+          <span>
+            <ion-button fill="clear outline">
+              <ion-icon slot="icon-only" class="toolbar-button" name="funnel-outline"></ion-icon>
+            </ion-button>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-grid class="visits-grid-container">
+        <ion-row class="visits-row" (click)="navigateToPatient()">
+          <ion-col class="first-col">
+            <ion-row>
+              <ion-col class="item-col width-8">
+                <div class="col-inner col-time">
+                  <p class="time"><span class="time-start">12:00</span> - <span class="time-end">13:00</span></p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20 patientName">
+                <div class="col-inner name">
+                  <p class="field-name">
+                    <span>
+                      CASE, Tanh
+                    </span>
+                    <ng-container>
+                      <span> PAS ID: RWP-PWP12314</span>
+                    </ng-container>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-26">
+                <div class="col-inner address-content">
+                  <ng-container *ngIf="serviceType === 'CONTACT'; else appointment">
+                    <div class="address-icon">
+                      <ion-icon name="home"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="address-contact">
+                        NY United Kingdom
+                      </p>
+                    </div>
+                  </ng-container>
+                  <ng-template #appointment>
+                    <div class="address-icon">
+                      <img class="icon-appointment" src="assets/img/clinic_icon_visit.svg">
+                    </div>
+                    <div>
+                      <p class="address-clinic">
+                        RWP Pham Nguyen Tanh Hospital
+                      </p>
+                      <p class="address-appointment">
+                        Floor 15
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-15">
+                <div class="col-inner">
+                  <p class="field-phone">
+                    <ion-icon name="call"></ion-icon>
+                    <span>0933865252</span>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20">
+                <div class="col-inner">
+                  <ion-row>
+                    <p class="field-appointment-type" *ngIf="serviceType != 'CONTACT'">
+                      Assgin to me
+                    </p>
+                  </ion-row>
+                  <ion-row>
+                    <p class="field-purpose" *ngIf="serviceType === 'CONTACT'">
+                      Purpose : Atenatal
+                    </p>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="visits-grid-container">
+        <ion-row class="visits-row" (click)="navigateToPatient()">
+          <ion-col class="first-col">
+            <ion-row>
+              <ion-col class="item-col width-8">
+                <div class="col-inner col-time">
+                  <p class="time"><span class="time-start">12:00</span> - <span class="time-end">13:00</span></p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20 patientName">
+                <div class="col-inner name">
+                  <p class="field-name">
+                    <span>
+                      CASE, Tanh
+                    </span>
+                    <ng-container>
+                      <span> PAS ID: RWP-PWP12314</span>
+                    </ng-container>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-26">
+                <div class="col-inner address-content">
+                  <ng-container *ngIf="serviceType === 'CONTACT'; else appointment">
+                    <div class="address-icon">
+                      <ion-icon name="home"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="address-contact">
+                        NY United Kingdom
+                      </p>
+                    </div>
+                  </ng-container>
+                  <ng-template #appointment>
+                    <div class="address-icon">
+                      <img class="icon-appointment" src="assets/img/clinic_icon_visit.svg">
+                    </div>
+                    <div>
+                      <p class="address-clinic">
+                        RWP Pham Nguyen Tanh Hospital
+                      </p>
+                      <p class="address-appointment">
+                        Floor 15
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-15">
+                <div class="col-inner">
+                  <p class="field-phone">
+                    <ion-icon name="call"></ion-icon>
+                    <span>0933865252</span>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20">
+                <div class="col-inner">
+                  <ion-row>
+                    <p class="field-appointment-type" *ngIf="serviceType != 'CONTACT'">
+                      Assgin to me
+                    </p>
+                  </ion-row>
+                  <ion-row>
+                    <p class="field-purpose" *ngIf="serviceType === 'CONTACT'">
+                      Purpose : Atenatal
+                    </p>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="visits-grid-container">
+        <ion-row class="visits-row" (click)="navigateToPatient()">
+          <ion-col class="first-col">
+            <ion-row>
+              <ion-col class="item-col width-8">
+                <div class="col-inner col-time">
+                  <p class="time"><span class="time-start">12:00</span> - <span class="time-end">13:00</span></p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20 patientName">
+                <div class="col-inner name">
+                  <p class="field-name">
+                    <span>
+                      CASE, Tanh
+                    </span>
+                    <ng-container>
+                      <span> PAS ID: RWP-PWP12314</span>
+                    </ng-container>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-26">
+                <div class="col-inner address-content">
+                  <ng-container *ngIf="serviceType === 'CONTACT'; else appointment">
+                    <div class="address-icon">
+                      <ion-icon name="home"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="address-contact">
+                        NY United Kingdom
+                      </p>
+                    </div>
+                  </ng-container>
+                  <ng-template #appointment>
+                    <div class="address-icon">
+                      <img class="icon-appointment" src="assets/img/clinic_icon_visit.svg">
+                    </div>
+                    <div>
+                      <p class="address-clinic">
+                        RWP Pham Nguyen Tanh Hospital
+                      </p>
+                      <p class="address-appointment">
+                        Floor 15
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-15">
+                <div class="col-inner">
+                  <p class="field-phone">
+                    <ion-icon name="call"></ion-icon>
+                    <span>0933865252</span>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20">
+                <div class="col-inner">
+                  <ion-row>
+                    <p class="field-appointment-type" *ngIf="serviceType != 'CONTACT'">
+                      Assgin to me
+                    </p>
+                  </ion-row>
+                  <ion-row>
+                    <p class="field-purpose" *ngIf="serviceType === 'CONTACT'">
+                      Purpose : Atenatal
+                    </p>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="visits-grid-container">
+        <ion-row class="visits-row" (click)="navigateToPatient()">
+          <ion-col class="first-col">
+            <ion-row>
+              <ion-col class="item-col width-8">
+                <div class="col-inner col-time">
+                  <p class="time"><span class="time-start">12:00</span> - <span class="time-end">13:00</span></p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20 patientName">
+                <div class="col-inner name">
+                  <p class="field-name">
+                    <span>
+                      CASE, Tanh
+                    </span>
+                    <ng-container>
+                      <span> PAS ID: RWP-PWP12314</span>
+                    </ng-container>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-26">
+                <div class="col-inner address-content">
+                  <ng-container *ngIf="serviceType === 'CONTACT'; else appointment">
+                    <div class="address-icon">
+                      <ion-icon name="home"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="address-contact">
+                        NY United Kingdom
+                      </p>
+                    </div>
+                  </ng-container>
+                  <ng-template #appointment>
+                    <div class="address-icon">
+                      <img class="icon-appointment" src="assets/img/clinic_icon_visit.svg">
+                    </div>
+                    <div>
+                      <p class="address-clinic">
+                        RWP Pham Nguyen Tanh Hospital
+                      </p>
+                      <p class="address-appointment">
+                        Floor 15
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-15">
+                <div class="col-inner">
+                  <p class="field-phone">
+                    <ion-icon name="call"></ion-icon>
+                    <span>0933865252</span>
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col class="item-col width-20">
+                <div class="col-inner">
+                  <ion-row>
+                    <p class="field-appointment-type" *ngIf="serviceType != 'CONTACT'">
+                      Assgin to me
+                    </p>
+                  </ion-row>
+                  <ion-row>
+                    <p class="field-purpose" *ngIf="serviceType === 'CONTACT'">
+                      Purpose : Atenatal
+                    </p>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <h3>text-start</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-end">
+          <h3>text-end</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-center">
+          <h3>text-center</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <div class="ion-text-justify ion-no-padding">
+          <h3>text-justify</h3>
+          <ion-label class="ion-item-right">
+            Ahihihi
+          </ion-label>
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-wrap">
+          <h3>text-wrap</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-nowrap">
+          <h3>text-nowrap</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<div>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-hide">
+        <div>
+          <h3>hidden</h3>
+          You can't see me.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <h3>not-hidden</h3>
+          You can see me!
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label slot="start">
+            TEST LABEL RIGHT
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+  <ion-button color="danger" (click)="presentAlert()">
+    <ion-icon slot="icon-only" name="home"></ion-icon>
+  </ion-button>
+  <button ion-button icon-only clear outline (click)="exportLog()">
+    <ion-icon class="toolbar-button" name="home"></ion-icon>
+</button>
+</div>
+ -->
+ <div id="ahihi">
+  <ion-grid class="today-grid-content">
+    <div class="today-visits-component">
+      <ion-row class="header-container">
+        <ion-col class="ion-no-padding">
+          <p class="label-header">1
+            <span> Visit </span>(1hr)
+          </p>
+        </ion-col>
+        <!-- <ion-col class="filter-col ion-no-padding">
+          <span class ="filter-txt" *ngIf="filterIcon === 'funnel'">
+            {{"Applied"}}
+          </span>
+          <ion-button slot="icon-only" fill="clear" (click)="exportLog()">
+            <ion-icon class="toolbar-button" name="funnel"></ion-icon>
+        </ion-button>
+        </ion-col> -->
+        <!-- <ion-col class="filter-col ion-no-padding">
+          <span class ="filter-txt" *ngIf="filterIcon === 'ios-funnel'">
+            {{"assignFilter.filterApplied" | translate}}
+          </span>
+          <ion-button slot="icon-only" fill="clear outline" (click)="showListOptions($event)">
+            <ion-icon class="toolbar-button" [name]="filterIcon"></ion-icon>
+        </ion-button>
+        </ion-col> -->
+        <ion-col class="ion-no-padding filter-col">
+          <span class ="filter-txt" *ngIf="filterIcon === 'funnel'">
+            Filter applied
+          </span>
+          <ion-button fill="clear outline" (click)=showListOptions()>
+            <ion-icon slot="icon-only" class="toolbar-button" [name]="filterIcon"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-grid class="visits-grid-container">
+        <ng-container *ngFor="let data of dataTodayVisits ; let i = index">
+          <ion-row class="visits-row" [ngClass]="{'dead-patient': data.isDeadPatient}" (swipe)="exportLog(i, data.isAccessRestricted, $event)">
+            <ion-col class="first-col">
+              <ion-row>
+                <ion-col class="item-col width-8">
+                  <div class="col-inner col-time">
+                    <p class="time" [class.conflict]="conflictArr[i]"><span class="time-start">18:00</span> - <span class="time-end">19:00</span></p>
+                  </div>
+                </ion-col>
+                <ion-col class="item-col width-20 patientName">
+                  <div class="col-inner name">
+                    <p class="field-name">
+                      <span>
+                        {{ data.patientName}}
+                        <span class="access-restricted patient-error" *ngIf="data.isDataErrorPatient && !data.isAccessRestricted">({{'patient.dataError'   }})</span>
+                      </span>
+                      <ng-container *ngIf='!data.isAccessRestricted ; else patientAccessRestricted' >
+                        <span> PAS ID: {{data.patientId}}</span>
+                      </ng-container>
+                      <ng-template #patientAccessRestricted>
+                        <span class ="access-restricted">{{ 'patient.accessRestricted'    }}</span>
+                      </ng-template>
+                    </p>
+                  </div>
+                  <div *ngIf="data.isBabyPatient" class="col-inner icon">
+                    <img class="baby-icon" src="assets/img/baby-summary.svg"/>
+                  </div>
+                </ion-col>
+                <ng-container *ngIf='!data.isAccessRestricted' >
+                  <ion-col class="item-col width-26">
+                    <div class="col-inner address-content">
+                      <ng-container *ngIf="data.serviceType === 'CONTACT'; else appointment">
+                        <div class="address-icon">
+                          <ion-icon name="home"></ion-icon>
+                        </div>
+                        <div>
+                          <p class="address-contact">
+                            {{ data.LocationType.displayText }}
+                          </p>
+                        </div>
+                      </ng-container>
+                      <ng-template #appointment>
+                        <div class="address-icon">
+                          <img class="icon-appointment" src="assets/img/clinic_icon_visit.svg">
+                        </div>
+                        <div>
+                          <p class="address-clinic">
+                            {{ data.healthCareService.displayText }}
+                          </p>
+                          <p class="address-appointment">
+                            {{ data.LocationType.displayText }}
+                          </p>
+                        </div>
+                      </ng-template>
+                    </div>
+                  </ion-col>
+                  <ion-col class="item-col width-15">
+                    <div class="col-inner">
+                      <p class="field-phone">
+                        <ion-icon name="call"></ion-icon>
+                        <span>{{ data.phone }}</span>
+                      </p>
+                    </div>
+                  </ion-col>
+                  <ion-col class="item-col width-20">
+                    <div class="col-inner">
+                      <ion-row>
+                        <p class="field-appointment-type">
+                          {{data.assignedTo.displayText}}
+                        </p>
+                    </ion-row>
+                      <ion-row>
+                        <p class="field-purpose"
+                          *ngIf="data.serviceType === 'CONTACT' && data.Purpose; else appointmentType">
+                          Purpose: {{data.Purpose.displayText }}
+                        </p>
+                        <ng-template #appointmentType>
+                          <p class="field-appointment-type" *ngIf="data.AppointmentType">
+                            Purpose:
+                            {{data.AppointmentType.displayText }}
+                          </p>
+                        </ng-template>
+                      </ion-row>
+                    </div>
+                  </ion-col>
+                  <ion-col class="col-estimated item-col" [ngClass]="isShowMore ?'col-estimated item-col': 'col-estimated item-col width-11'">
+                    <div class="btn-visits arrive-btn" *ngIf="data.status === 'booked'; else actualSection">
+                      <span class="btn-text" [ngClass]="{'disabled': data.visitOID < 0 || data.isDataErrorPatient}" (click)="exportLog(data, i)">{{"Arrive"}}</span>
+                    </div>
+                    <ng-template #actualSection>
+                      <ng-container *ngIf="data.status === 'arrived'; else finishedSection">
+                        <div class="btn-visits depart-btn" *ngIf="data.serviceType !== 'CONTACT'">
+                          <span class="btn-text" [ngClass]="{'disabled': data.visitOID < 0 || data.isDataErrorPatient}" (click)="exportLog(data, i)">{{"Depart"}}</span>
+                        </div>
+                        <div class="btn-visits depart-btn" *ngIf="data.serviceType === 'CONTACT'">
+                          <span class="actualise-text">{{"Arrive"}}</span>
+                        </div>
+                      </ng-container>
+                      <ng-template #finishedSection> 
+                        <div class="actualise-visits" *ngIf="data.status === 'fulfilled'; else dnaCancel">
+                          <!--<div class="actualise-visits" *ngIf="data.status === appointmentStatus.FULFILLED">-->
+                          <span class="actualise-text">{{"Finished"}}</span>
+                        </div>
+                        <ng-template #dnaCancel>
+                          <div class="actualise-visits" *ngIf="data.status === 'noshow'; else cancellationSection">
+                              <span class="actualise-text">{{"DNA the visit"}}</span>
+                          </div>
+                          <ng-template #cancellationSection>
+                            <div class="actualise-visits" *ngIf="data.status === 'CC_CANCELLED'">
+                              <span class="cancelled-text">{{"Cancel"}}</span>
+                            </div>
+                          </ng-template>
+                        </ng-template>
+                      </ng-template>
+          
+                    </ng-template>
+          
+                    <div class="col-inner view-more"  (click)="changeShowMore()">
+                      <ion-icon [name]="isShowMore ? 'ellipsis-vertical-outline' : 'ellipsis-vertical'"></ion-icon>
+                    </div>
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ion-col>
+            <ng-container *ngIf="isShowMore">
+  
+              <div class="travel-info" *ngIf="data.status === 'arrived' || data.status === 'fulfilled'">
+                <p>{{ data.StartAt }}</p>
+                <p>{{ data.Duration ? data.Duration : '' }}</p>
+              </div>
+  
+              <div class="travel-info" *ngIf="data.status === 'noshow'">
+                <p>{{ data.serviceType !== 'CONTACT' ? 'N/A': data.StartAt}}</p>
+                <p>{{ data.serviceType !== 'CONTACT' ? 'N/A' : data.Duration ? data.Duration : '' }}</p>
+              </div>
+  
+              <div class="cancel-container" [class.disabled-btn]="data.isDataErrorPatient" *ngIf="data.status === 'booked' || (data.status === 'arrived' && data.serviceType === 'CONTACT')" (click)="exportLog(data, $event)">
+                <div class="cancel-btn">
+                  <ion-icon name="close" class="icon-close"></ion-icon>
+                  <span>{{ data.visitOID > 0 ? ("Cancel"   ) : ("Delete"   )}}</span>
+                </div>
+              </div>
+  
+            </ng-container>
+          </ion-row>
+          <ion-row class="duration-row">
+            <!-- <ng-container *ngIf="(durationArr[i].hour > 0 || durationArr[i].min > 0) && !data.isAccessRestricted ; else line">
+              <p class="time-line">
+                <span *ngIf="durationArr[i].hour > 0">{{ durationArr[i].hour }}h </span>
+                <span *ngIf="durationArr[i].min > 0">{{ durationArr[i].min }}min</span>
+              </p>
+            </ng-container> -->
+            <ng-template >
+              <span class="line"></span>
+            </ng-template>
+          </ion-row>
+        </ng-container>
+      </ion-grid>
+    </div>
+  </ion-grid>
+ </div>
+

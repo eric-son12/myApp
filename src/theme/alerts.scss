@@ -1,0 +1,126 @@
+// Alert messages common & mixin
+//---------------------------------------------------
+.alert-msg-icons {
+  position: fixed;
+  font-family: "ionicons";
+  font-size: 40px;
+  line-height: 34px;
+  color: color($colors, color-white);
+}
+
+@mixin alert-msg-type($codeIcon, $type) {
+  .alert-wrapper {
+      background-color: color($colors-notice, $type);
+    }
+    .alert-head::before {
+      content: $codeIcon;
+      @extend .alert-msg-icons;
+    }
+}
+
+
+// Alert Messages
+//---------------------------------------------------
+ion-alert.lrz-msg {
+  font-family: "Roboto", sans-serif;
+
+  .alert-title {
+    font-size: 20px;
+    margin-left: 50px;
+    color: color($colors, color-white);
+  }
+  .alert-sub-title {
+    font-size: 16px;
+    margin: 2px 0px 0px 50px;
+    color: color($colors, color-white);
+  }
+  .alert-message {
+    font-size: 16px;
+    padding: 15px 0px 15px 50px;
+    color: color($colors, color-white);
+  }
+  .alert-button-group {
+    justify-content: space-between;
+    padding: 0px;
+    align-self: flex-end;
+  }
+  .alert-head {
+    padding: 0px;
+    height: 40px;
+  }
+  .alert-wrapper {
+    max-width: 400px !important;
+    max-height: 300px;
+    padding: 15px;
+    min-width: 30%;
+  }
+  .alert-button {
+    font-size: 14px;
+    min-width: 100px;
+    margin: 0 0 0 15px;
+    background-color: color($colors, color-white);
+    .button-inner {
+      justify-content: center;
+    }
+  }
+
+  &.lrz-error-msg,
+  &.lrz-error-msg-syn {
+    @include alert-msg-type("\f2bf", error);
+  }
+
+  &.lrz-highlight-msg {
+    @include alert-msg-type("", highlight);
+  }
+
+  &.lrz-info-msg {
+    @include alert-msg-type("\f311", info);
+  }
+
+  &.lrz-success-msg {
+    @include alert-msg-type("\f2bc", success);
+  }
+
+  &.lrz-warning-msg {
+    @include alert-msg-type("\f3a5", warning);
+  }
+
+}
+
+ion-alert.lrz-scheduling-confirm {
+  .alert-button {
+    border-radius: 2px;
+    background-color: #0096bb;
+    color: #fff;
+    width: 141px;
+    span.button-inner {
+      justify-content: center;
+    }
+
+    &.disabled {
+      background-color: color($colors, color-gray);
+      cursor: default;
+    }
+  }
+}
+
+ion-alert.lrz-confirm-retry-sync {
+  .alert-wrapper{
+    width: 50%;
+    .alert-message{
+      text-align: center;
+    }
+    .alert-button-group{
+      justify-content: center;
+      .alert-button {
+        border-radius: 2px;
+        background-color: red;
+        color: #fff;
+        width: 140px;
+        span.button-inner {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

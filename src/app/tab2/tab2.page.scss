@@ -1,0 +1,68 @@
+.second {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    border-bottom: 1px solid gray;
+    padding: 4px 10px 0 10px;
+    background-color: white;
+    .patient-zone-2-collapse {
+      cursor: pointer;
+    }
+    .contact-address {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #5F6672;
+      flex: 0 0 40%;
+      font-weight: bold;
+      ion-icon {
+        color: #41464e;
+      }
+    }
+    .contact-phone {
+      flex: 0 0 30%;
+      padding-left: 5px;
+      color: #5F6672;
+      font-weight: bold;
+      ion-icon {
+        color: #41464e;
+      }
+    }
+    .warnings {
+      display: flex;
+      flex: 0 0 30%;
+      font-weight: 700;
+      margin-right: 10px;
+      padding-left: 10px;
+      justify-content: space-between;
+      .warning {
+        color: #e6920c;
+      }
+      .no-known-allergy {
+        color: #5F6672;
+        font-weight: bold;
+      }
+      .not-recorded-allergy {
+        color: #5F6672;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+      }
+      .unavailable {
+        color: #5F6672;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+      }
+    }
+    ion-icon {
+      padding-right: 2px;
+    }
+    ion-icon, ion-icon + span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .bar-buttons {
+      color: #0096BB;
+    }
+  }

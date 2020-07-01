@@ -1,0 +1,82 @@
+@import "common";
+
+// Override text color
+// --------------------------------------------------
+$label-wp-text-color: color($colors, color-black);
+
+// Override ionic checkbox
+// --------------------------------------------------
+
+/// @prop - Border color of the checkbox icon when off
+$checkbox-wp-icon-border-color-off: color($colors, color-dusty-gray);
+
+/// @prop - Border color of the checkbox icon when on
+$checkbox-wp-icon-border-color-on: color($colors, color-pelorous);
+
+/// @prop - Background color of the checkbox icon when off
+$checkbox-wp-icon-background-color-off: color($colors, color-white-gray);
+
+/// @prop - Background color of the checkbox icon when on
+$checkbox-wp-icon-background-color-on: color($colors, color-white-gray);
+
+/// @prop - Color of the checkbox icon checkmark
+$checkbox-wp-icon-checkmark-color: color($colors, color-pelorous);
+
+/// @prop - Size of the checkbox icon
+$checkbox-wp-icon-size: 25px;
+
+// Override ionic radio
+// --------------------------------------------------
+
+/// @prop - Color of the checked radio
+$radio-wp-color-on: color($colors, color-cerulea-blue);
+
+/// @prop - Color of the unchecked radio
+$radio-wp-color-off: color($colors, color-cerulea-blue);
+
+/// @prop - Width of the radio icon
+$radio-wp-icon-width: 25px;
+
+/// @prop - Height of the radio icon
+$radio-wp-icon-height: 25px;
+
+// Override ionic Item
+// --------------------------------------------------
+$item-wp-padding-right:               40px !default;
+$item-wp-padding-media-top:           0;
+$item-wp-padding-media-bottom:        0;
+
+// Override ionic Content
+// --------------------------------------------------
+$content-md-padding:                  20px !default;
+
+
+// Override default style
+// ----------------------------------------------------
+.app-root {
+  // Material Design Clear Input Icon
+  // --------------------------------------------------
+  .input-wp .text-input-clear-icon {
+    @include position-horizontal(null, 6px);
+  }
+
+  // Material Design Stacked & Floating Inputs
+  // --------------------------------------------------
+  .item-label-stacked .text-input-wp,
+  .item-label-floating .text-input-wp {
+    @include margin(0, null, 0, 0);
+    width: 100%;
+  }
+
+  // Material Design List inputs
+  // --------------------------------------------------
+  .list-wp .item-input:last-child {
+    border-bottom: none;
+  }
+
+  // Material Design Item
+  // --------------------------------------------------
+  .item-wp {
+    background-color: transparent; //$list-md-background-color
+  }
+}

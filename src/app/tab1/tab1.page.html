@@ -1,17 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+<div id="ahihi">
+  <ng-container>
+    <div class="first">
+      <div class="name">
+        <span class="lastname">LAM,</span>
+        <span class="firstname">Tran</span>
+        <span class="middlename"></span>
+        <!-- <span *ngIf="patient?.title">({{ patient.title }})</span> -->
+        <div slot="start" class="label-sync">
+          <ion-icon name="md-sync" [class.sync-fail]="!isSyncDone" *ngIf="elapsedString"></ion-icon>
+          <span class="info-sync">
+          22 hours
+        </span>
+        </div>
+      </div>
+      <div class="details">
+        Born
+        <ng-container *ngIf="showData">
+          <span class="brith-day">
+            01-Jan-1990
+          </span>
+          <span class="brith-day">
+            (30y)
+          </span>
+        </ng-container>
+        <span>
+          &middot; Gender
+          <b>Female</b>
+        </span>
+        <span class="secondary-id">
+          &middot; NHS No.
+          <b></b>
+        </span>
+      </div>
+    </div>
+  
+    <div class="second">
+      <div class="contact-address">
+        <ion-icon name="mail"></ion-icon>
+        NY, United Kingdom
+      </div>
+      <div class="contact-phone">
+        <ion-icon name="call"></ion-icon>
+        
+      </div>
+      <div class="warnings">
+        <div class="warnings-content">
+          <span class="warning">
+          <ion-icon name="flower"></ion-icon>
+          <span>Known allergies (1)</span>
+          </span>
+        </div>
+        <ion-icon slot="end" class="expand-button" (click)="expandPatientDetail($event)" [name]="!isPatientBannerCollapsed ? 'more-outline' : 'more'"></ion-icon>
+      </div>
+    </div>
+  
+  </ng-container>
+  
+</div>

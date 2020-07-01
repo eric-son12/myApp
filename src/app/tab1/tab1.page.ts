@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  showData: boolean = true;
+  isSyncDone: boolean = true;
+  isPatientBannerCollapsed: boolean = true;
+  elapsedString = "22 hours";
   constructor() {}
+
+
+  expandPatientDetail(){
+
+  };
 
 }

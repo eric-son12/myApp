@@ -1,0 +1,29 @@
+%style-input {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+%center-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%input-style {
+  border: 1px solid #999;
+  height: 44px;
+  border-radius: 3px;
+  margin: 0;
+  box-shadow: none;
+}
+
+@mixin square ($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin size ($width, $height) {
+  width: $width;
+  height: $height;
+}
+

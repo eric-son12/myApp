@@ -1,17 +1,369 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-</ion-content>
+<div id="ahihi">
+  <ion-grid class="content-maternity">
+    <ion-row class="content-maternity">
+      <div class="maternity-box">
+        <div class="left-side">
+          <ion-row class="episode-box">
+            <ion-button slot="icon-only" fill="clear" class="episode-button">
+              <ion-icon name="open"></ion-icon>
+            </ion-button>
+          </ion-row>
+  
+          <!-- <lrz-segment [navItems]="maternityTypesDashboard" (tabChanges)="filterVisitList($event)"></lrz-segment> -->
+  
+        </div>
+        <ng-container *ngIf="visitList">
+          <div class="encounter-list">
+            <ion-list class="list-card">
+              <ng-container *ngFor="let visitSection of visitList, let i = index">
+                <ng-container *ngFor="let visit of visitSection, let index = index">
+                  <!--next visit, antenatal, postnatal, delivery summary card-->
+                  <ng-container *ngIf="visit.visitType != typeOfSubstance">
+                    <ion-row>
+                      <!-- display card has visit on header -->
+                      <ion-card class="visit-content">
+                        <ion-card-header>
+                          <ion-grid>
+                            <ion-row class="ion-wrap first-row">
+                              <ion-col class="first-content width-75">
+                                <ion-row>
+                                  <!-- Visit name and Visit number -->
+                                  <ng-container *ngIf="(visit.visitProcess === 'AN_BOOK_AND_POSTNATAL'
+                                  || visit.visitProcess === 'AN_REVIEW_AND_POSTNATAL'); else oneTitleProcess">
+                                    <ion-col class="visit-title value-setting basic-font visit-time width-40">
+                                      <span class="visit-name">VISIT</span>
+                                    </ion-col>
+                                  </ng-container>
+                                  <ng-template #oneTitleProcess>
+                                    <ion-col class="visit-title value-setting basic-font visit-time width-40">
+                                      <ng-container *ngIf="visit.visitName">
+                                        <span>{{visit.visitName.toUpperCase()}}</span>
+                                      </ng-container>
+                                      <ng-container *ngIf="visit.visitProcessType && visit.visitProcessType == 'Inpatient'">
+                                        <span class="visit-name">{{" · " + visit.visitProcessType.toUpperCase()}}&nbsp;</span>
+                                      </ng-container>
+                                      <ng-container *ngIf="visit.visitNumber">
+                                        <span class="visit-name">{{" · "}}VISIT {{visit.visitNumber}}</span>
+                                      </ng-container>
+                                    </ion-col>
+                                  </ng-template>
+  
+  
+                                  <!-- assessment date for inPatient or psotnatal delivery-->
+                                  <ng-container *ngIf="visit.visitType == typeOfPostnatal
+                                    || (visit.visitType == typeOfPostnatalDelivery  && visit.visitProcessType == 'Inpatient')
+                                    || (visit.visitType == typeOfPostnatalDelivery  && visit.visitProcessType == 'Contact'); else ontherAssessment">
+                                    <ion-col class="value-setting basic-font visit-time width-40">
+                                      <div class="visit-date">Assessment date:
+                                        <ng-container *ngIf="visit.content.length && visit.content[0] && visit.content[0][0]"><span class="visit-date-value">{{visit.content[0][0].assessmentDate}}</span></ng-container>
+                                      </div>
+                                    </ion-col>
+                                  </ng-container>
+  
+                                  <!-- Assessment date of other type -->
+                                  <ng-template #ontherAssessment>
+                                    <ion-col *ngIf="visit.visitType != typeOfBirthSummary" class="value-setting basic-font visit-time width-40">
+                                      <div class="visit-date">Assessment date: <span class="visit-date-value">{{visit.lastestAssessmentDate}}</span></div>
+                                    </ion-col>
+                                  </ng-template>
+  
+                                  <ng-container *ngIf="(visit.visitProcess != 'AN_BOOK_AND_POSTNATAL'
+                                  && visit.visitProcess != 'AN_REVIEW_AND_POSTNATAL')">
+                                    <!-- Postnatal day of visit in Postnatal -->
+                                    <ion-col class="visit-time width-20">
+                                      <ng-container
+                                        *ngIf="visit.visitName.toLowerCase().includes('postnatal'); else visitGestation">
+                                        <span class="visit-age basic-font">Postnatal days:
+                                          <span class="value-setting" *ngIf="visit.age">{{visit.age}}</span>
+                                        </span>
+                                      </ng-container>
+                                      <!-- Gestation day of antenatal visit -->
+                                      <ng-template #visitGestation>
+                                        <span
+                                          class="visit-age basic-font">{{visit.visitType==typeOfDelivery ? "Gestation at delivery: " : "Gestation: "}}
+                                          <span class="value-setting">{{visit.visitGestation}}</span>
+                                        </span>
+                                      </ng-template>
+                                    </ion-col>
+                                  </ng-container>
+  
+                                </ion-row>
+                              </ion-col>
+                              <ion-col class="status-progress width-25">
+                                <ion-row>
+                                  <ng-container *ngIf="visit.isShowPDFPrinter">
+                                    <ion-col class="print-button">
+                                      <ion-button slot="icon-only" fill="outline" (click)="print(visit)">
+                                        <ion-icon name="print"></ion-icon>
+                                      </ion-button>
+                                    </ion-col>
+                                  </ng-container>
+  
+                                  <ng-container *ngIf="(visit.visitProcess != 'AN_BOOK_AND_POSTNATAL' && visit.visitProcess != 'AN_REVIEW_AND_POSTNATAL')">
+                                    <ion-col class="progress-name">
+                                      <div class="border-status" *ngIf="visit.visitStatus"
+                                        [class.deliveried]="visit.visitStatus == deliveried"
+                                        [class.in-progress]="visit.visitStatus == inProgress"
+                                        [class.completed]="visit.visitStatus == completed">
+                                        <ng-container *ngIf="visit.visitStatus != notStarted">
+                                          <span>
+                                            {{visit.visitStatus}}
+                                          </span>
+                                        </ng-container>
+                                      </div>
+                                    </ion-col>
+                                  </ng-container>
+                                  <ng-container *ngIf="visit.visitStatus == notStarted && !visit.startProcess && visit.practitioner">
+                                    <ion-col>
+                                      <span class="basic-font">Booked by:
+                                        <span class="value-setting">{{visit.practitioner | async}}</span>
+                                      </span>
+                                    </ion-col>
+                                  </ng-container>
+                                  <ng-container *ngIf="visit.startProcess">
+                                    <ion-col>
+                                      <ion-buttons class="bar-buttons">
+                                        <ng-container *ngIf="visit.visitStatus == notStarted">
+                                          <ng-container *ngIf="(visit.visitProcess === 'AN_BOOK_AND_POSTNATAL'
+                                          || visit.visitProcess === 'AN_REVIEW_AND_POSTNATAL'); else oneProcess">
+                                          <div class="col-button-manual-process">
+                                            <ion-button fill="clear" class="button-manual-process" (click)="handleEventManualProcess(visit)">Start Antenatal</ion-button>
+                                          </div>
+                                            <div class="col-button-manual-process">
+                                              <ion-button fill="clear" class="button-manual-process" (click)="handleEventManualProcess(visit, true)">Start Postnatal</ion-button>
+                                            </div>
+                                          </ng-container>
+                                          <ng-template #oneProcess>
+                                            <div class="col-button-process">
+                                              <ion-button fill="clear" class="button-process" (click)="pushEventProcess(visit)">Start</ion-button>
+                                            </div>
+                                          </ng-template>
+  
+                                        </ng-container>
+                                        <ng-container *ngIf="visit.visitStatus == completed || visit.visitStatus == deliveried || visit.visitProcessType == 'Inpatient'">
+                                          <div class="col-button-process">
+                                            <ion-button fill="clear" class="button-process" (click)="pushEventProcess(visit)">View</ion-button>
+                                          </div>
+                                        </ng-container>
+                                        <ng-container *ngIf="visit.visitStatus == inProgress">
+                                          <div class="col-button-process">
+                                            <ion-button fill="clear" class="button-process" (click)="pushEventProcess(visit)">Resume</ion-button>
+                                          </div>
+                                        </ng-container>
+  
+                                      </ion-buttons>
+                                    </ion-col>
+                                  </ng-container>
+                                </ion-row>
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                        </ion-card-header>
+                        <ng-container *ngIf="visit.content">
+                          <ion-card-content class="encounter-content">
+                            <ion-grid>
+                              <ng-container *ngIf="(visit.visitType == typeOfPostnatal)
+                              || (visit.visitType == typeOfPostnatalDelivery  && visit.visitProcessType == 'Inpatient')
+                              || (visit.visitType == typeOfPostnatalDelivery  && visit.visitProcessType == 'Contact' && visit.visitStatus != notStarted); else notInpatient">
+                                <!--Inpatient Postnatal-->
+                                <ng-container *ngFor="let visitContent of visit.content, let i = index">
+                                  <ng-container *ngIf="visitContent.length">
+                                    <ion-row *ngIf="visit.isMissingAntenatalForm">
+                                      <span class="wraning-missing-form">{{ "maternity.noteAntenatalData"}}</span>
+                                    </ion-row>
+                                    <ion-row class="first-row" *ngFor="let items of visitContent, let y = index">
+                                      <ng-container *ngIf="y != 0">
+                                        <ion-col class="width-100">
+                                          <ion-row class="inpatient-content">
+                                            <ion-col class="inpatient-title visit-title value-setting basic-font visit-time">
+                                            </ion-col>
+                                            <ion-col class="value-setting basic-font visit-time inpatient-assessment">
+                                              <div class="visit-date">Assessment date: <span class="visit-date-value">{{items.assessmentDate}}</span></div>
+                                            </ion-col>
+                                            <ion-col class="visit-time custom-style width-20">
+                                              <span class="visit-age basic-font">Postnatal days: <span class="value-setting">{{items.durationDays}}</span></span>
+                                            </ion-col>
+                                          </ion-row>
+                                        </ion-col>
+                                      </ng-container>
+  
+                                      <ng-container *ngFor="let item of items.content">
+                                        <ion-col class="{{item.itemClass}} custom-sub-group" size-sm="6" size-md="6" size-lg="4">
+                                            <span class="basic-font">{{item.itemName}}:</span>
+                                            <ng-container *ngIf="item.itemHasSubGroup">
+                                              <div class="item-subgroup">
+                                                <ng-container *ngFor="let subGroupItem of item.itemSubGroupContent">
+                                                  <div>
+                                                    <span class="basic-font">{{subGroupItem.itemName}}:</span>
+                                                    <span class="basic-font value-setting">{{subGroupItem.itemValue}}</span>
+                                                  </div>
+                                                </ng-container>
+                                              </div>
+                                            </ng-container>
+                                          <ng-container *ngIf="item.itemValue">
+                                            <div class="item-value">
+                                              <span class="basic-font value-setting">{{item.itemValue}}</span>
+                                            </div>
+                                          </ng-container>
+                                        </ion-col>
+                                      </ng-container>
+                                    </ion-row>
+                                  </ng-container>
+                                </ng-container>
+                              </ng-container>
+                              <!-- end inpatient postnatal -->
+  
+                              <ng-template #notInpatient>
+                                <!--summaries content-->
+                                <ng-container *ngFor="let visitContent of visit.content, let i = index">
+                                  <ng-container *ngIf="visitContent.length">
+                                    <ion-row class="ion-wrap row-content" [ngClass]="{'header-inpatient': items[0]?.itemType == antenatalHeader}" *ngFor="let items of visitContent, let y = index">
+  
+                                      <ng-container *ngIf="items.length && items[0].itemType != 'fetal'">
+                                        <!--anteatnal summary and inpatient and current render is antenatal header-->
+                                        <ng-container *ngIf="(visit.visitType == typeOfAntenatal)
+                                          && (visit.visitProcessType == 'Inpatient')
+                                          && (items[0].itemType == antenatalHeader)">
+                                          <ion-col class="value-setting basic-font">
+                                            <ng-container *ngIf="visit.visitName">
+                                              <span>{{visit.visitName.toUpperCase()}}</span>
+                                            </ng-container>
+                                            <ng-container *ngIf="visit.visitProcessType && visit.visitProcessType == 'Inpatient'">
+                                              <span class="visit-name">{{" · " + visit.visitProcessType.toUpperCase()}}&nbsp;</span>
+                                            </ng-container>
+                                            <ng-container *ngIf="visit.visitNumber">
+                                              <span class="visit-name">{{" · "}}VISIT {{visit.visitNumber}}</span>
+                                            </ng-container>
+                                          </ion-col>
+                                        </ng-container>
+                                        <ng-container *ngFor="let item of items">
+                                          <!--data summary object-->
+                                          <ng-container *ngIf="!item.length, else fetal">
+                                            <ng-container *ngIf="item.itemType === deliveryType, else isNotDeliveryType">
+                                                <ion-col class="delivery-panel width-100">
+                                                  <ion-row class="ion-no-wrap caption-row">
+                                                      <span>{{item.itemCaption | uppercase}}:</span>
+                                                  </ion-row>
+                                                  <ion-row class="ion-wrap data-row">
+                                                    <ng-container *ngFor="let data of item.itemData">
+                                                        <ion-col [class]="data.itemClass">
+                                                          <span class="basic-font">{{data.itemName}}:</span>
+                                                          <span class="basic-font value-setting">{{data.itemValue}}</span>
+                                                        </ion-col>
+                                                    </ng-container>
+                                                  </ion-row>
+                                                </ion-col>
+                                            </ng-container>
+  
+                                            <ng-template #isNotDeliveryType>
+                                              <ion-col class="{{item.itemClass}}">
+                                                <span class="basic-font">{{item.itemName}}:</span>
+                                                <ng-container *ngIf="item.itemHasSubGroup">
+                                                  <ion-list>
+                                                    <ng-container *ngFor="let subGroupItem of item.itemSubGroupContent">
+                                                      <ion-row class="ion-wrap">
+                                                        <ion-col>
+                                                          <span class="basic-font">{{subGroupItem.itemName}}:</span>
+                                                          <span class="basic-font value-setting">{{subGroupItem.itemValue}}</span>
+                                                        </ion-col>
+                                                      </ion-row>
+                                                    </ng-container>
+                                                  </ion-list>
+                                                </ng-container>
+                                                <ng-container *ngIf="item.itemValue">
+                                                  <span class="basic-font value-setting">{{item.itemValue}}</span>
+                                                </ng-container>
+                                              </ion-col>
+                                            </ng-template>
+                                          </ng-container>
+  
+                                          <!--array of fetal-->
+                                          <ng-template #fetal>
+                                            <ion-row  class="ion-no-wrap width-100" >
+                                            <ng-container *ngFor="let fetal of item">
+                                                  <ng-container *ngIf="fetal.itemName != 'Status' && fetal.itemName == ''">
+                                                    <ion-col class="{{fetal.itemClass}}">
+                                                      <span class="basic-font">{{fetal.itemValue}}</span>
+                                                    </ion-col>
+                                                  </ng-container>
+                                                  <ng-container *ngIf="(fetal.itemName != 'Status' && fetal.itemName != '')
+                                                  && (fetal.itemValue == '' || fetal.itemValue != nonViableStatus) ">
+                                                    <ion-col class="{{fetal.itemClass}}">
+                                                      <span class="basic-font">{{fetal.itemName}}:</span>
+                                                      <ng-container *ngIf="fetal.itemValue">
+                                                        <span class="basic-font value-setting">{{fetal.itemValue}}</span>
+                                                      </ng-container>
+                                                    </ion-col>
+                                                  </ng-container>
+                                                  <ng-container *ngIf="fetal.itemName == 'Status' && fetal.itemValue == nonViableStatus">
+                                                    <ion-col class="{{fetal.itemClass}}">
+                                                      <span class="basic-font">{{fetal.itemName}}:</span>
+                                                      <ng-container *ngIf="fetal.itemValue">
+                                                        <span class="basic-font value-setting">{{fetal.itemValue}}</span>
+                                                      </ng-container>
+                                                    </ion-col>
+                                                  </ng-container>
+                                                </ng-container>
+                                              </ion-row>
+                                          </ng-template>
+                                        </ng-container>
+                                      </ng-container>
+  
+                                    </ion-row>
+                                  </ng-container>
+  
+                                  <!--comment object-->
+                                  <ng-container *ngIf="visitContent.itemName">
+                                    <ion-row>
+                                      <ion-col class="width-66">
+                                        <span class="basic-font">{{visitContent.itemName}}:</span>
+                                        <ng-container *ngIf="visitContent.itemValue">
+                                          <span class="basic-font value-setting">{{visitContent.itemValue}}</span>
+                                        </ng-container>
+                                      </ion-col>
+                                    </ion-row>
+                                  </ng-container>
+                                </ng-container>
+                              </ng-template>
+  
+  
+                            </ion-grid>
+                          </ion-card-content>
+                        </ng-container>
+                      </ion-card>
+                    </ion-row>
+                  </ng-container>
+                  <!-- Substance history card -->
+                  <ng-container *ngIf="visit.visitType == typeOfSubstance">
+                    <ion-row>
+                      <ion-card>
+                        <ion-card-content class="substance-content">
+                          <div class="substance-title">
+                            <span class="basic-font value-setting">SUBSTANCE HISTORY</span>
+                          </div>
+                          <ion-row class="substance-data" *ngFor="let substanceContent of visit.content">
+                            <ng-container *ngFor="let item of substanceContent">
+                              <ion-col class="substance-child" size-sm="6" size-md="6" size-lg="3">
+                                <ng-container *ngIf="item.itemName">
+                                  <span class="basic-font">{{item.itemName}}:</span>
+                                </ng-container>
+                                <ng-container *ngIf="item.itemValue">
+                                  <span class="basic-font value-setting">{{item.itemValue}}</span>
+                                </ng-container>
+                              </ion-col>
+                            </ng-container>
+                          </ion-row>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-row>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </ion-list>
+          </div>
+        </ng-container>
+      </div>
+    </ion-row>
+  </ion-grid>
+  
+</div>

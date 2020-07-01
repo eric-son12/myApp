@@ -1,0 +1,377 @@
+#ahihi {
+  .wraning-missing-form {
+    color: red;
+    margin-left: -6px;
+    margin-bottom: 5px;
+  }
+  .card-content-md{
+    padding: 13px 11px;
+  }
+  .content-maternity {
+    padding: 0px;
+    height: 100%;
+    overflow-y: hidden;
+    
+    .visit-content {
+      min-height: 50px;
+    }
+
+    .maternity-box {
+      height: 100%;
+      width: 100%;
+      display: flex;
+    }
+
+    .left-side {
+      padding: 0px;
+      width: 44px;
+      height: calc(100% - 43px);
+    }
+
+    .encounter-list {
+      width: 100%;
+      overflow: auto;
+      background-color: white;
+      .card-header {
+        
+        .grid {
+          padding: 0px 5px;
+        }
+        .row {
+          min-height: 40px;
+          align-items: center;
+        }
+        .root-row {
+          min-height: 50px;
+        }
+      }
+      .encounter-content {
+        margin-top: -7px;
+        padding: 0px 11px 8px;
+        .row-content {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .header-inpatient {
+          width: 76%;
+          display: flex;
+          align-items: center;
+        }
+        .delivery-panel {
+          .caption-row {
+            font-weight: bold;
+            color: #0096bb;
+            padding: 0 0 3px 0;
+            border-bottom: 1px solid rgba(236, 233, 233, 0.5);
+          }
+          .data-row {
+            padding: 3px 0 0 0;
+          }
+        }
+
+      }
+  }
+    .episode-box {
+      border: 1px solid #CFE4EE;
+      border-radius: 5px 0px 0px 5px;
+      background-color: #CFE4EE;
+      margin-bottom: 5px;
+      .episode-button {
+        width: 44px;
+        margin: 0px;
+        .button-inner {
+          -ms-transform: rotate(90deg); // windows
+          -webkit-transform: rotate(90deg); // Chrome, Safari, Opera
+          transform: rotate(90deg);
+          color: #616674;
+        }
+      }
+    }
+      .lrz-segment {
+        .process-nav-horizontal {
+          background-color: white;
+          .process-nav-items {
+            .process-nav-item {
+              &.segment-button {
+                background-color: #CFE4EE;
+                display: flex;
+                opacity: 0.7;
+                justify-content: center;
+                align-items: center;
+                width: 44px;
+                flex: 0 0 150px;
+                border: none;
+                border-bottom: 1px solid #999;
+                .button-effect {
+                  display: none;
+                }
+                &.segment-activated {
+                  border-right: 2px solid #0096bb;
+                  background-color: #46d6f2;
+                }
+                .nav-text {
+                  text-transform: none;
+                  font-size: 14px;
+                  color: black;
+                  -ms-transform: rotate(-90deg); // windows
+                  -webkit-transform: rotate(-90deg); // Chrome, Safari, Opera
+                  transform: rotate(-90deg);
+                }
+              }
+              &.segment-button:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  .list-card{
+    margin-bottom: 0px;
+    background-color: white;
+    ion-row{
+      ion-card {
+        margin: 10px 10px 0 10px;
+      }
+    }
+    ion-row:last-child {
+      ion-card{
+        margin-bottom: 10px;
+      }
+    }
+    .grid{
+      padding: 5px 5px 0 5px;
+    }
+    .grid:last-child {
+      padding-top: 0px;
+  }
+    .first-row{
+      width: 100%;
+      .inpatient-content {
+        flex: 0 0 calc(75% + 14px);
+        max-width: calc(75% + 14px);
+        .inpatient-title {
+          flex: 0 0 calc(40% - 11px);
+          max-width: calc(40% - 11px);
+        }
+        .inpatient-assessment {
+          flex: 0 0 calc(40% + 15px);
+          max-width: calc(40% + 15px);
+        }
+        .visit-age {
+          white-space: nowrap; 
+        }
+      }
+    }
+    .visit-time {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .visit-age {
+      margin-left: 5px;
+    }
+    .visit-title{
+      padding-left: 0;
+    }
+    .substance-content {
+      padding: 0 0 8px 0;
+      .substance-title {
+        padding-left: 10px;
+        padding-top: 15px;
+      }
+   .substance-data {
+        padding-left: 14px;
+      }
+    }
+  }
+
+  .status-progress{ 
+    ion-row{
+      justify-content: flex-end;
+      .print-button{
+        max-width: 45px;
+        height: 45px;
+        align-items: center;
+        justify-content: flex-start;
+        .button-inner{
+          color: #0096bb;
+        }
+        ion-icon{
+          font-size: 28px;
+        }
+        .button-outline-md{
+          border-color: transparent;
+        }
+      }
+    ion-col{
+      align-items: center;
+      .progress-name{
+        flex: 0 0 115px;
+      }
+      flex: 0 0 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 5px 0;
+      .bar-buttons {
+        display: flex
+      }
+      .border-status {
+        width: 105px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        border-radius: 64px;
+        align-items: center;
+        font-size: 14px;
+      }
+      .col-button-process,
+      .col-button-manual-process {
+        display: flex;
+        justify-content: center;
+        background-color: #0096bb;
+        margin-left: 7px;
+        height: 30px;
+      }
+      .col-button-manual-process {
+        width: 110px;
+      }
+      .col-button-process {
+        width: 70px;
+      }
+      .button-process,
+      .button-manual-process {
+        height: 30px;
+        margin: 0px;
+      }
+      .button-process {
+        width: 70px;
+      }
+      .button-inner {
+        background-color: transparent;
+        color: white;
+        font-size: 14px;
+        text-transform: none;
+      }
+    }
+  }
+  }
+  .status-progress.progress-name{
+    flex: 0 0 115px;
+  }
+  .deliveried {
+    border: 1px solid #40a6bf;
+    background-color: #40a6bf;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .in-progress {
+    border: 1px solid #e6920c;
+    background-color: #e6920c;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .completed {
+    border: 1px solid #5B8C15;
+    background-color: #5B8C15;
+    color: white;
+    font-weight: bold;
+  }
+
+  .patient-link {
+    a {
+      font-weight: 500;      
+      color: #0096bb;
+    }
+    .inactive {
+      font-weight: 500;
+      color: #6d6e71;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+        cursor: text;
+      }
+    }
+  }
+
+  .value-setting {
+    font-weight: bold;
+    .visit-date-custom {
+      font-size: 14px;
+      color: #5F6672;
+      font-weight: 400;
+      padding: 0px;
+      .visit-date-value{
+        font-weight: bold;
+      }
+    }
+    .visit-date{
+      font-size: 14px;
+      color: #5F6672;
+      font-weight: 400;
+      padding-left: 5px;
+      .visit-date-value{
+        font-weight: bold;
+      }
+    }
+    .visit-name{
+			position: relative;
+			padding-left: 5px;
+		}
+  }
+  .basic-font {
+    font-size: 14px;
+    color: #5F6672;
+  }
+
+  .custom-style {
+    margin-left: -15px;
+  }
+
+  .custom-sub-group {
+    display: flex;
+    .item-subgroup {
+      padding-left: 5px;
+    }
+    .item-value {
+      padding-left: 5px;
+      flex-grow: 1;
+      flex-basis: inherit;
+    }
+  }
+
+  .width-75{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .width-40{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+  .width-20{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .width-20{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+}
