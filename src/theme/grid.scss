@@ -1,14 +1,9 @@
 // Grid, Column minxin
 //-------------------------------------------
-@mixin make-column-width($width) {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 $width;
-  -ms-flex: 0 0 $width;
-  flex: 0 0 $width;
-  max-width: $width;
-}
 
-.app-root {
+@import "mixins";
+
+:root {
   // Columns
   //-------------------------------------------
   ion-col[width-04],

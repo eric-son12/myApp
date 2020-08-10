@@ -5,9 +5,9 @@
         <span class="lastname">LAM,</span>
         <span class="firstname">Tran</span>
         <span class="middlename"></span>
-        <!-- <span *ngIf="patient?.title">({{ patient.title }})</span> -->
+        <span *ngIf="patient?.title">({{ patient.title }})</span>
         <div slot="start" class="label-sync">
-          <ion-icon name="md-sync" [class.sync-fail]="!isSyncDone" *ngIf="elapsedString"></ion-icon>
+          <ion-icon name="sync" [class.sync-fail]="!isSyncDone" *ngIf="elapsedString"></ion-icon>
           <span class="info-sync">
           22 hours
         </span>
@@ -55,5 +55,46 @@
     </div>
   
   </ng-container>
+  
+  <ng-container *ngFor="let item of items">
+    <ion-radio-group >
+      <ion-item  class="width-25">
+        <ion-label class="hihihi">{{item.itemLabel}}</ion-label>
+        <ion-radio slot="start" checked="{{item.itemSelect}}" [value]="item.itemID"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ng-container>
+    
+
+
+
+    <ion-radio-group value="two">
+      <ion-item lines="none">
+        <ion-label color="primary">ONE</ion-label>
+        <ion-radio slot="end" value="one"></ion-radio>
+      </ion-item>
+      <ion-item lines="none"> 
+        <ion-label color="secondary" >TWO</ion-label>
+        <ion-radio value="two"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label color="tertiary">THREE</ion-label>
+        <ion-radio value="three"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label color="danger" >FOUR</ion-label>
+        <ion-radio value="four"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label color="light" >FIVE  </ion-label>
+        <p color="light">Ahihi</p>
+        <ion-radio value="four"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-input type="text">ahihi  </ion-input>
+    <button>
+      <ion-icon  name="call"></ion-icon>
+    </button>
   
 </div>

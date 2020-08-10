@@ -1,4 +1,4 @@
-#ahihi {
+#ahihi{
   .wraning-missing-form {
     color: red;
     margin-left: -6px;
@@ -61,7 +61,7 @@
         .delivery-panel {
           .caption-row {
             font-weight: bold;
-            color: #0096bb;
+            color: var(--color-cerulea-blue);
             padding: 0 0 3px 0;
             border-bottom: 1px solid rgba(236, 233, 233, 0.5);
           }
@@ -84,7 +84,7 @@
           -ms-transform: rotate(90deg); // windows
           -webkit-transform: rotate(90deg); // Chrome, Safari, Opera
           transform: rotate(90deg);
-          color: #616674;
+          color: var(--header-title-color);
         }
       }
     }
@@ -107,13 +107,13 @@
                   display: none;
                 }
                 &.segment-activated {
-                  border-right: 2px solid #0096bb;
+                  border-right: 2px solid var(--color-cerulea-blue);
                   background-color: #46d6f2;
                 }
                 .nav-text {
                   text-transform: none;
                   font-size: 14px;
-                  color: black;
+                  color: var(--color-black);
                   -ms-transform: rotate(-90deg); // windows
                   -webkit-transform: rotate(-90deg); // Chrome, Safari, Opera
                   transform: rotate(-90deg);
@@ -130,7 +130,7 @@
 
   .list-card{
     margin-bottom: 0px;
-    background-color: white;
+    background-color: var(--color-white);
     ion-row{
       ion-card {
         margin: 10px 10px 0 10px;
@@ -232,7 +232,7 @@
       .col-button-manual-process {
         display: flex;
         justify-content: center;
-        background-color: #0096bb;
+        background-color: var(--color-cerulea-blue);
         margin-left: 7px;
         height: 30px;
       }
@@ -263,34 +263,34 @@
     flex: 0 0 115px;
   }
   .deliveried {
-    border: 1px solid #40a6bf;
-    background-color: #40a6bf;
-    color: white;
+    border: 1px solid var(--color-blue-pelorous);
+    background-color: var(--color-blue-pelorous);
+    color: var(--color-white);
     font-weight: bold;
   }
   
   .in-progress {
-    border: 1px solid #e6920c;
-    background-color: #e6920c;
-    color: white;
+    border: 1px solid var(--color-gamboge);
+    background-color: var(--color-gamboge);
+    color: var(--color-white);
     font-weight: bold;
   }
   
   .completed {
-    border: 1px solid #5B8C15;
-    background-color: #5B8C15;
-    color: white;
+    border: 1px solid var(--success);
+    background-color: var(--success);
+    color: var(--color-white);
     font-weight: bold;
   }
 
   .patient-link {
     a {
       font-weight: 500;      
-      color: #0096bb;
+      color: var(--color-cerulea-blue);
     }
     .inactive {
       font-weight: 500;
-      color: #6d6e71;
+      color: var(--color-silver-dark);
       text-decoration: none;
       &:hover {
         opacity: 1;
@@ -303,7 +303,7 @@
     font-weight: bold;
     .visit-date-custom {
       font-size: 14px;
-      color: #5F6672;
+      color: var(--color-normal);
       font-weight: 400;
       padding: 0px;
       .visit-date-value{
@@ -312,7 +312,7 @@
     }
     .visit-date{
       font-size: 14px;
-      color: #5F6672;
+      color: var(--color-normal);
       font-weight: 400;
       padding-left: 5px;
       .visit-date-value{
@@ -326,7 +326,7 @@
   }
   .basic-font {
     font-size: 14px;
-    color: #5F6672;
+    color: var(--color-normal);
   }
 
   .custom-style {
@@ -343,35 +343,6 @@
       flex-grow: 1;
       flex-basis: inherit;
     }
-  }
-
-  .width-75{
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 75%;
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
-    max-width: 75%;
-  }
-  .width-40{
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 40%;
-    -ms-flex: 0 0 40%;
-    flex: 0 0 40%;
-    max-width: 40%;
-  }
-  .width-20{
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 20%;
-    -ms-flex: 0 0 20%;
-    flex: 0 0 20%;
-    max-width: 20%;
-  }
-  .width-20{
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 100%;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
   }
   
 }

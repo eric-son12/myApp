@@ -24,3 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+// @import "./theme/variables.scss";
+// @import "./theme/common.scss";
+// @import "./theme/grid.scss";
+
+@mixin make-column-width($width) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 $width;
+    -ms-flex: 0 0 $width;
+    flex: 0 0 $width;
+    max-width: $width;
+  }

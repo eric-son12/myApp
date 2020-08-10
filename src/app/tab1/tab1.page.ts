@@ -10,6 +10,13 @@ export class Tab1Page {
   isSyncDone: boolean = true;
   isPatientBannerCollapsed: boolean = true;
   elapsedString = "22 hours";
+  items: Array<any> = [
+    {itemID: 1, itemLabel: "Ahihi", itemSelect: true},
+    {itemID: 2, itemLabel: "Ahis", itemSelect: true},
+    {itemID: 3, itemLabel: "daihi", itemSelect: false},
+    {itemID: 4, itemLabel: "faschi", itemSelect: true},
+    {itemID: 5, itemLabel: "sdafwa", itemSelect: false}
+  ]
   constructor() {}
 
 

@@ -1,130 +1,130 @@
 #ahihi {
-    white-space: nowrap;
-    font-size: 12px;
-    z-index: 10000;
-    .expand-button {
-      font-size: 25px;
-      color: #0096BB;
+  white-space: nowrap;
+  font-size: var(--patient-banner-normal-fontsize);
+  z-index: 10000;
+  .expand-button {
+    font-size: 25px;
+    color: #0096BB;
+    cursor: pointer;
+  }
+  .first {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #FFF;
+    height: 44px;
+    background: var(--patient-banner-background);
+    .name {
+      display: flex;
+      flex: 0 0 40%;
+      padding-left: 10px;
+      padding-top: 10px;
+      font-size: 18px;
+      .firstname, .middlename {
+        text-transform: capitalize;
+        padding-left: 4px;
+      }
+      .lastname {
+        font-size: var(--patient-banner-uppername-fontsize);
+      }
+    }
+    .sync-fail{
+      color: red;
+    }
+    .label-sync{
+      color: #FFF;
+      padding-left: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10px;
+      .info-sync{
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: lowercase;
+      }
+       } 
+    .details {
+      padding-right: 10px;
+      font-size: 12px;
+      font-weight: 200;
+      width: auto;
+      padding-top: 16px;
+    }
+  }
+  .second {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    border-bottom: 1px solid var(--color-gray-light);
+    padding: 4px 10px 0 10px;
+    background-color: var(--background-color);
+    .patient-zone-2-collapse {
       cursor: pointer;
     }
-    .first {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      color: #FFF;
-      height: 44px;
-      background: blue;
-      .name {
-        display: flex;
-        flex: 0 0 40%;
-        padding-left: 10px;
-        padding-top: 10px;
-        font-size: 18px;
-        .firstname, .middlename {
-          text-transform: capitalize;
-          padding-left: 4px;
-        }
-        .lastname {
-          font-size: 18px;
-        }
-      }
-      .sync-fail{
-        color: red;
-      }
-      .label-sync{
-        color: #FFF;
-        padding-left: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 10px;
-        .info-sync{
-          font-size: 12px;
-          font-weight: bold;
-          text-transform: lowercase;
-        }
-         } 
-      .details {
-        padding-right: 10px;
-        font-size: 12px;
-        font-weight: 200;
-        width: auto;
-        padding-top: 16px;
-      }
-    }
-    .second {
-      display: flex;
-      justify-content: space-between;
-      height: 30px;
-      border-bottom: 1px solid lightgray;
-      padding: 4px 10px 0 10px;
-      background-color: blue;
-      .patient-zone-2-collapse {
-        cursor: pointer;
-      }
-      .contact-address {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: white;
-        flex: 0 0 40%;
-        font-weight: bold;
-        ion-icon {
-          color: red;
-        }
-      }
-      .contact-phone {
-        flex: 0 0 30%;
-        padding-left: 5px;
-        color: white;
-        font-weight: bold;
-        ion-icon {
-          color: red;
-        }
-      }
-      .warnings {
-        display: flex;
-        flex: 0 0 30%;
-        font-weight: 700;
-        margin-right: 10px;
-        padding-left: 10px;
-        justify-content: space-between;
-        .warning {
-          color: yellow;
-        }
-        .no-known-allergy {
-          color: red;
-          font-weight: bold;
-        }
-        .not-recorded-allergy {
-          color: red;
-          font-family: "Roboto";
-          font-style: normal;
-          font-weight: 300;
-        }
-        .unavailable {
-          color: red;
-          font-family: "Roboto";
-          font-style: normal;
-          font-weight: 300;
-        }
-      }
-      ion-icon {
-        padding-right: 2px;
-      }
-      ion-icon, ion-icon + span {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .bar-buttons {
-        color: black;
-      }
-    }
-    .secondary-id {
-      display: inline-block;
-      min-width: 130px;
-    }
-    .brith-day {
+    .contact-address {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--color-normal);
+      flex: 0 0 40%;
       font-weight: bold;
+      ion-icon {
+        color: var(--color-mako);
+      }
     }
+    .contact-phone {
+      flex: 0 0 30%;
+      padding-left: 5px;
+      color: var(--color-normal);
+      font-weight: bold;
+      ion-icon {
+        color: var(--color-mako);
+      }
+    }
+    .warnings {
+      display: flex;
+      flex: 0 0 30%;
+      font-weight: 700;
+      margin-right: 10px;
+      padding-left: 10px;
+      justify-content: space-between;
+      .warning {
+        color: var(--color-gamboge);
+      }
+      .no-known-allergy {
+        color: var(--color-normal);
+        font-weight: bold;
+      }
+      .not-recorded-allergy {
+        color: var(--color-normal);
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+      }
+      .unavailable {
+        color: var(--color-normal);
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+      }
+    }
+    ion-icon {
+      padding-right: 2px;
+    }
+    ion-icon, ion-icon + span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .bar-buttons {
+      color: var(--leftsidemenu-header-background);
+    }
+  }
+  .secondary-id {
+    display: inline-block;
+    min-width: 130px;
+  }
+  .brith-day {
+    font-weight: bold;
+  }
   }

@@ -1,8 +1,8 @@
 // Common mixins
 @import 'mixins';
-@import 'alerts';
-@import 'messages';
-@import 'grid';
+// @import 'grid';
+// @import 'alerts';
+// @import 'messages';
 
 //Header Title Block
 .ion-page, .popover-content {
@@ -52,7 +52,7 @@
         white-space: normal;
         margin: 0;
         .label-value{
-          color :$text-color;
+          color :var(--text-color);
         }
       }
     }
@@ -62,12 +62,12 @@
         height: 88px;
         margin: 0;
         background-color: #FFF;
-        border: 1px solid color($colors, color-dusty-gray);
+        border: 1px solid var(--color-dusty-gray);
         border-radius: 3px;
         resize: none;
         padding: 10px;
         &:focus {
-          border: 1px solid color($colors, color-pelorous);
+          border: 1px solid var(--color-pelorous);
         }
       }
     }
@@ -85,7 +85,7 @@
       .text-input {
         border: 1px solid red;
         &:focus {
-          border: 1px solid color($colors, color-pelorous);
+          border: 1px solid var(--color-pelorous);
         }
       }
     }
@@ -147,7 +147,7 @@
     line-height: normal;
     align-self: flex-start;
     .label {
-      color: color($colors, color-cerulea-blue);
+      color: var(--color-cerulea-blue);
     }
   }
   .search-box {
@@ -160,7 +160,7 @@
     width: 95px;
   }
   .text-input:focus {
-    border: 1px solid color($colors, color-pelorous);
+    border: 1px solid var(--color-pelorous);
   }
 }
 
@@ -223,28 +223,28 @@
 }
 
 .item.item-radio-disabled {
-  
+
   ion-radio.radio.radio-disabled {
     opacity: 1;
     .radio-icon {
-      border-color: color($colors, color-border);
+      border-color: var(--color-border);
       &.radio-checked {
         .radio-inner {
-          background-color: color($colors, color-border);
+          background-color: var(--color-border);
         }
       }
     }
   }
 
   .item-inner .input-wrapper ion-label.label {
-    color: color($colors, color-dusty-gray);
+    color: var(--color-dusty-gray);
     opacity: 1;
   }
 }
 
 .item-checkbox-disabled {
   & ion-label {
-    color: color($colors, color-border);
+    color: var(--color-border);
   }
 }
 
@@ -269,20 +269,20 @@ button.toast-button {
 }
 
 .label-disabled {
-  color: color($colors, color-dusty-gray) !important;
+  color: var(--color-dusty-gray) !important;
 }
 
 //theme of radio list's popup
 .select-alert.single-select-alert {
   [aria-checked=true] .alert-radio-label {
-    color: color($colors, color-cerulea-blue);
+    color: var(--color-cerulea-blue);
   }
   & .alert-head {
     padding: 15px 15px 15px 15px;
   }
   & .alert-button {
     margin: 0 15px 0 0;
-    background-color: color($colors, color-cerulea-blue);
+    background-color: var(--color-cerulea-blue);
     color: white;
     height: 40px;
     width: 100px;
@@ -292,7 +292,7 @@ button.toast-button {
     }
   }
   .alert-title {
-    color: color($colors, color-cerulea-blue);
+    color: var(--color-cerulea-blue);
     display: flex;
     align-items: center;
     height: 35px;
@@ -303,7 +303,7 @@ button.toast-button {
     }
   }
   .alert-button-group {
-    
+
     background-color: #F5F5F5;
     height: 75px;
     padding: 15px 0px 15px;
@@ -318,14 +318,14 @@ button.toast-button {
 .ion-page, .popover-content {
   .text-input[disabled] {
     opacity: 1;
-    border-color: color($colors, color-border);
-    color: color($colors, color-dusty-gray);
+    border-color: var(--color-border);
+    color: var(--color-dusty-gray);
   }
 }
 
 .data-table {
   padding: 0 10px 10px 10px;
-  color: #5F6672;
+  color: var(--color-normal);
   .data-table-title,
   .data-table-content {
     border-bottom: 1px solid #999;
@@ -367,7 +367,7 @@ button.toast-button {
 }
 
 
-.app-root {
+:root {
   // Header Control Form
   //--------------------------------------------
   .header-control-form {
@@ -396,7 +396,7 @@ button.toast-button {
       }
     }
   }
-  
+
   .form-header {
     position: relative;
     display: flex;
@@ -424,10 +424,10 @@ button.toast-button {
     }
   }
 
-  // Content Wrap 
+  // Content Wrap
   //-----------------------------------------------
   .content-wrap {
-    border-top: 1px solid color($colors, color-cerulea-blue);
+    border-top: 1px solid var(--color-cerulea-blue);
   }
 
   // Common styles
@@ -438,11 +438,11 @@ button.toast-button {
   }
 
   .asterik {
-    color: color($colors, color-asterisk);
+    color: var(--color-asterisk);
   }
 
   .has-error {
-    color: color($colors, color-bordeaux)!important;
+    color: var(--color-bordeaux)!important;
   }
 
   // Re-align item-content
@@ -452,15 +452,15 @@ button.toast-button {
 
   .item-input.item-label-stacked {
     .label {
-      color: color($colors, color-cerulea-blue);
+      color: var(--color-cerulea-blue);
       font-size: 14px;
       margin-top: 0;
       margin-bottom: 15px;
     }
   }
 
-  .item-input ion-label[item-left] {
-    color: color($colors, color-cerulea-blue);
+  .item-input ion-label[slot="start"] {
+    color: var(--color-cerulea-blue);
   }
 
   ion-card {
@@ -475,13 +475,13 @@ button.toast-button {
     margin: 0;
     padding: 12px 10px;
     border-radius: 4px;
-    border: 1px solid color($colors, color-dusty-gray);
+    border: 1px solid var(--color-dusty-gray);
   }
 
   // Label form
   //---------------------------------------------------
   .lrz-form-label {
-    color: color($colors, color-cerulea-blue);
+    color: var(--color-cerulea-blue);
     font-size: 1.4rem;
     text-transform: none;
   }
@@ -493,7 +493,7 @@ button.toast-button {
       content: '.';
       display: inline-block;
       font-size: 50px;
-      color: color($colors, color-cerulea-blue);
+      color: var(--color-cerulea-blue);
       line-height: 0;
       position: absolute;
       right: 3px;
@@ -503,14 +503,14 @@ button.toast-button {
 
   // Override spinner & input
   //-----------------------------------------------------
-  lrz-spinner[item-left],
-  ion-input[item-left],
-  ion-label[item-right] {
+  lrz-spinner[slot="start"],
+  ion-input[slot="start"],
+  ion-label[slot="end"] {
     margin: 0 10px 0 0;
   }
 
-  lrz-spinner[item-left] + .item-inner .input-wrapper,
-  ion-input[item-left] + .item-inner .input-wrapper {
+  lrz-spinner[slot="start"] + .item-inner .input-wrapper,
+  ion-input[slot="start"] + .item-inner .input-wrapper {
     justify-content: flex-end;
   }
 
@@ -534,7 +534,7 @@ button.toast-button {
       margin: 0;
     }
   }
-  
+
   .view-mode-label,
   .view-mode-infor {
     display: inline;
@@ -604,7 +604,7 @@ button.toast-button {
 }
 
 .access-restricted {
-  color: color($colors, color-error);
+  color: var(--color-error);
   font-style: italic;
   font-weight: normal;
 }
